@@ -3,10 +3,15 @@ import * as React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { UserOutlined } from 'antd';
 import { StyleSheet,View, Text,TouchableOpacity } from 'react-native';
+import MessageListItem from '../component/MessageListItem';
 const InformScreen= () => {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
+      <MessageListItem title="系統通知" />
+        </View>
+      <View style={styles.contentContainer}>
+        <MessageListItem title="商場更新" />
         <Box style={styles.box}>
             <Text style={styles.text}>
               UserXXXXXXX  昨天

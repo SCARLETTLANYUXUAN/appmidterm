@@ -12,6 +12,9 @@ import HomeScreen from '../screens/homescreen';
 import SettingScreen from '../screens/settingscreen';
 import InformScreen from'../screens/informscreen'
 import LoginScreen from '../screens/loginscreen';
+
+import DisplayMessageScreen from '../screens/displaymessagescreen';
+import DisplaySettingScreen from '../screens/displaysettingscreen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,7 +29,7 @@ const Navigation = () => {
 
 const MyDrawer = () => {
   return (
-    <Drawer.Navigator initialRouteName="LoginStack">
+    <Drawer.Navigator initialRouteName="MainStack">
       <Drawer.Screen 
         name="LoginStack" 
         component={LoginStack} 
@@ -140,19 +143,38 @@ const MoreStack = ({navigation}) => {
               onPress={() => navigation.openDrawer()}
               style={{marginRight: 20}}
             />            
-          ),  
+          ), 
+           
+        }}
+      />
+      
+      <Stack.Screen
+        name="DisplayMessage"
+        component={DisplayMessageScreen}
+        options={{
+          title: "通知設定",
+          headerTitleStyle: {
+            fontWeight: '400',
+            fontSize: 20
+          },
+        }}
+      />
+      <Stack.Screen
+        name="DisplaySetting"
+        component={DisplaySettingScreen}
+        options={{
+          title: "顯示設定",
+          headerTitleStyle: {
+            fontWeight: '400',
+            fontSize: 20
+          },
         }}
       />
       <Stack.Screen
         name="AccountSetting"
         component={AccountSettingScreen}
         options={{
-          title: "Account",
-          headerTitleStyle: {
-            fontWeight: "400",
-            fontSize: 20,
-          },
-          headerTintColor: '#000',
+          title: "賬號設定",
           headerTitleStyle: {
             fontWeight: '400',
             fontSize: 20
@@ -254,7 +276,7 @@ const MainStack = ({navigation}) => {
         options={({ route }) => ({
           title: route.params.title,
           headerStyle: {
-            backgroundColor: '#fffdd0',
+            backgroundColor: '#fff',
           },
           headerTitleStyle: {
             fontWeight: '400',
